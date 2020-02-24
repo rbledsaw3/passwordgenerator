@@ -1,0 +1,20 @@
+#!/bin/bash
+
+re='^[0-9]+$'
+j="$(expr ${1} - 1)"
+
+if ! [[ $1 =~ $re ]] ; then
+	echo "ERROR: Argument is not a number." >&2; exit 1
+fi
+
+for ((i=0;i<$1;i++))
+do
+	n="$(curl -s "https://www.random.org/integers/?num=1&min=1&max=1466238&col=5&base=10&format=html&rnd=new" | grep "=\"data\"" | sed 's/[^0-9]*//g')"
+	p="$(head -${n} words | tail -1)"
+	if [[ $i -eq $j ]]
+	then
+		printf "$p\n"
+	else
+		printf "$p "
+	fi
+done
