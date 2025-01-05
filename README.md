@@ -1,6 +1,6 @@
 # passwordgenerator
 
-Utilizes random.org's TRNG and a combined wordlist of 1,466,238 unique european words to generate passphrases. The small version of the wordlist contains 144,889 words that are 3 to 6 characters long.
+Utilizes random.org's TRNG and a combined wordlist of 1,187,839 unique european words to generate passphrases. The small version of the wordlist contains 131,346 words that are 3 to 6 characters long.
 
 ## Languages
 
