@@ -1,6 +1,6 @@
 # passwordgenerator
 
-Utilizes random.org's TRNG and a combined wordlist of 1,466,238 unique european words to generate passphrases.
+Utilizes random.org's TRNG and a combined wordlist of 1,466,238 unique european words to generate passphrases. The small version of the wordlist contains 144,889 words that are 3 to 6 characters long.
 
 ## Languages
 
@@ -12,6 +12,12 @@ To use, simply run:
 
 ```bash
 ./pphgen n
+```
+
+or
+
+```bash
+./pphgensmall n
 ```
 
 where *n* is the number of words you wish to have in your passphrase.

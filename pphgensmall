@@ -1,0 +1,23 @@
+#!/bin/bash
+
+re='^[0-9]+$'
+
+if ! [[ $1 =~ $re ]] ; then
+	echo "ERROR: Argument is not a number." >&2
+	exit 1
+fi
+
+numbers="$(curl -s "https://www.random.org/integers/?num=${1}&min=1&max=144889&col=${1}&base=10&format=html&rnd=new" | grep "=\"data\"" | sed 's/[^0-9\t]*//g')"
+
+read -a array <<< "$numbers"
+array_length=${#array[@]}
+
+for index in "${!array[@]}"
+do
+	p="$(head -${array[$index]} smallwords | tail -1)"
+	if [ $index -eq $((array_length-1)) ]; then
+		printf "$p\n"
+	else
+		printf "$p "
+	fi
+done
